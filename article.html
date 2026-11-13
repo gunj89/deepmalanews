@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="gu" translate="no">
+
+<head>
+<!--@include head-->
+    <title>લેખ | Deepmala News</title>
+    <!--OG_START-->
+    <meta name="description" content="Deepmala News નો લેખ વાંચો.">
+    <meta property="og:title" content="લેખ | Deepmala News">
+    <meta property="og:description" content="Deepmala News નો લેખ વાંચો.">
+    <!--OG_END-->
+</head>
+
+<body>
+
+<!--@include header-->
+
+    <main id="main">
+
+        <article class="article-view container narrow-article" id="articleView">
+            <a class="back-link" href="/articles.html">← બધા લેખો</a>
+
+            <div id="articleState" class="article-state" aria-live="polite">લેખ લોડ થઈ રહ્યો છે…</div>
+
+            <div id="articleBody" hidden>
+                <p class="draft-banner" id="draftBanner" hidden>આ લેખ હજી પ્રકાશિત થયો નથી (ફક્ત એડમિન માટે પ્રીવ્યૂ).</p>
+                <h1 class="article-title" id="articleTitle"></h1>
+                <p class="article-meta" id="articleMeta"></p>
+                <figure class="article-cover" id="articleCover" hidden><img id="articleCoverImg" alt=""></figure>
+
+                <div class="prose" id="articleContent"></div>
+
+                <div class="reactions" role="group" aria-label="પ્રતિભાવ">
+                    <button type="button" class="react-btn" id="likeBtn" aria-pressed="false">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3Zm0 0 4-7a2 2 0 0 1 2 2v4h5.2a2 2 0 0 1 2 2.3l-1 6a2 2 0 0 1-2 1.7H7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg>
+                        <span>ગમ્યું</span> <b id="likeCount">0</b>
+                    </button>
+                    <button type="button" class="react-btn" id="dislikeBtn" aria-pressed="false">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" style="transform:rotate(180deg)"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3Zm0 0 4-7a2 2 0 0 1 2 2v4h5.2a2 2 0 0 1 2 2.3l-1 6a2 2 0 0 1-2 1.7H7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg>
+                        <span>ન ગમ્યું</span> <b id="dislikeCount">0</b>
+                    </button>
+                    <button type="button" class="react-btn share-btn" id="shareBtn" aria-expanded="false" aria-controls="sharePanel">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4m0 0L8 8m4-4 4 4M5 13v6a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>શેર કરો</span>
+                    </button>
+                </div>
+                <p class="react-msg" id="reactMsg" role="status"></p>
+
+                <div class="share-panel" id="sharePanel" hidden>
+                    <a class="share-link wa" id="shareWa" target="_blank" rel="noopener">WhatsApp</a>
+                    <a class="share-link" id="shareFb" target="_blank" rel="noopener">Facebook</a>
+                    <a class="share-link" id="shareX" target="_blank" rel="noopener">X</a>
+                    <a class="share-link" id="shareTg" target="_blank" rel="noopener">Telegram</a>
+                    <button type="button" class="share-link" id="shareCopy">લિંક કૉપી કરો</button>
+                </div>
+
+                <section class="comments" aria-labelledby="commentsHead">
+                    <h2 id="commentsHead">ટિપ્પણીઓ <span id="commentCount"></span></h2>
+
+                    <div class="comment-gate" id="commentGate" hidden>
+                        <p>ટિપ્પણી લખવા માટે સાઇન ઇન કરો. વાંચવા માટે સાઇન ઇન જરૂરી નથી.</p>
+                        <button type="button" class="btn btn-primary" id="gateSignIn">સાઇન ઇન</button>
+                    </div>
+
+                    <form class="comment-form" id="commentForm" novalidate hidden>
+                        <p class="comment-as" id="commentAs"></p>
+                        <label for="cText">ટિપ્પણી લખો</label>
+                        <textarea id="cText" name="text" rows="4" maxlength="1000" required></textarea>
+                        <input type="text" name="website" id="cWebsite" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+                        <div class="comment-actions">
+                            <small id="cLeft">1000</small>
+                            <button type="submit" class="btn btn-primary" id="cSubmit">ટિપ્પણી મોકલો</button>
+                        </div>
+                        <p class="form-msg" id="cMsg" role="status"></p>
+                    </form>
+
+                    <ul class="comment-list" id="commentList"></ul>
+                    <button type="button" class="btn btn-ghost btn-block" id="commentMore" hidden>વધુ ટિપ્પણીઓ</button>
+                </section>
+            </div>
+        </article>
+
+    </main>
+
+<!--@include footer-->
+
+    <script type="module" src="/src/js/article.js"></script>
+
+</body>
+
+</html>

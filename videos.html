@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="gu" translate="no">
+
+<head>
+<!--@include head-->
+    <title>Deepmala News Videos | Latest Gujarati News on YouTube</title>
+    <meta name="description" content="Watch all Deepmala News videos — latest Gujarati news coverage, reports and interviews.">
+    <link rel="canonical" href="https://deepmala-news.vercel.app/videos.html">
+    <meta property="og:title" content="Deepmala News Videos | Latest Gujarati News on YouTube">
+    <meta property="og:description" content="Watch all Deepmala News videos — latest Gujarati news coverage, reports and interviews.">
+    <meta property="og:url" content="https://deepmala-news.vercel.app/videos.html">
+    <meta name="twitter:title" content="Deepmala News Videos | Latest Gujarati News on YouTube">
+    <meta name="twitter:description" content="Watch all Deepmala News videos — latest Gujarati news coverage, reports and interviews.">
+</head>
+
+<body>
+
+<!--@include header-->
+
+    <main id="main">
+
+        <section class="page-hero">
+            <div class="container">
+                <p class="eyebrow">Deepmala News on YouTube</p>
+                <h1>વીડિયો</h1>
+                <p>દિપમાલા ન્યૂઝ ના બધા વીડિયો — સમાચાર કવરેજ, રિપોર્ટ્સ, ઇન્ટરવ્યૂ અને વિશેષ અહેવાલો.</p>
+            </div>
+        </section>
+
+        <section class="section video-page">
+            <div class="container">
+
+                <div class="search-row">
+                    <label class="search" for="videoSearch">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        <input id="videoSearch" type="search" placeholder="વીડિયો શોધો…" autocomplete="off" enterkeyhint="search">
+                    </label>
+                    <a href="https://www.youtube.com/@deepmalanews?sub_confirmation=1" class="btn btn-primary" target="_blank" rel="noopener">Subscribe</a>
+                </div>
+
+                <div class="video-grid" id="videoGrid">
+                    <article class="video-card"><div class="video-media is-empty skeleton-block"></div><div class="video-info"><span>&nbsp;</span><h3>&nbsp;</h3></div></article>
+                    <article class="video-card"><div class="video-media is-empty skeleton-block"></div><div class="video-info"><span>&nbsp;</span><h3>&nbsp;</h3></div></article>
+                    <article class="video-card"><div class="video-media is-empty skeleton-block"></div><div class="video-info"><span>&nbsp;</span><h3>&nbsp;</h3></div></article>
+                </div>
+
+                <p class="list-status" id="videoStatus" aria-live="polite"></p>
+                <button type="button" class="btn btn-ghost btn-lg btn-block load-more" id="videoMore" hidden>વધુ વીડિયો બતાવો</button>
+            </div>
+        </section>
+
+    </main>
+
+<!--@include footer-->
+
+    <script type="module" src="/src/js/videos.js"></script>
+
+</body>
+
+</html>

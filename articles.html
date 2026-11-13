@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="gu" translate="no">
+
+<head>
+<!--@include head-->
+    <title>Deepmala Articles | લેખ અને વિશેષ અહેવાલ</title>
+    <meta name="description" content="Deepmala News ના લેખ, વિશ્લેષણ અને વિશેષ અહેવાલો ગુજરાતીમાં વાંચો.">
+    <link rel="canonical" href="https://deepmala-news.vercel.app/articles.html">
+    <meta property="og:title" content="Deepmala Articles | લેખ અને વિશેષ અહેવાલ">
+    <meta property="og:description" content="Deepmala News ના લેખ, વિશ્લેષણ અને વિશેષ અહેવાલો ગુજરાતીમાં વાંચો.">
+    <meta property="og:url" content="https://deepmala-news.vercel.app/articles.html">
+</head>
+
+<body>
+
+<!--@include header-->
+
+    <main id="main">
+
+        <section class="page-hero">
+            <div class="container">
+                <p class="eyebrow">Deepmala Articles</p>
+                <h1>લેખ</h1>
+                <p>સમાચાર વિશ્લેષણ, વિશેષ અહેવાલો અને વાંચવા લાયક લેખો.</p>
+            </div>
+        </section>
+
+        <section class="section article-page-section tight-top">
+            <div class="container">
+                <div class="article-grid" id="articleGrid">
+                    <div class="article-card skeleton-card"><div class="article-thumb skeleton-block"></div></div>
+                    <div class="article-card skeleton-card"><div class="article-thumb skeleton-block"></div></div>
+                    <div class="article-card skeleton-card"><div class="article-thumb skeleton-block"></div></div>
+                </div>
+                <p class="list-status" id="articleStatus" aria-live="polite"></p>
+                <button type="button" class="btn btn-ghost btn-lg btn-block load-more" id="articleMore" hidden>વધુ લેખો બતાવો</button>
+            </div>
+        </section>
+
+    </main>
+
+<!--@include footer-->
+
+    <script type="module" src="/src/js/articles.js"></script>
+
+</body>
+
+</html>

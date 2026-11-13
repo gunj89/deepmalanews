@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="gu" translate="no">
+
+<head>
+<!--@include head-->
+    <title>Deepmala Newspaper Archive | Read & Download Past Editions</title>
+    <meta name="description" content="Read the latest Deepmala Gujarati weekly newspaper and browse every past edition as PDF.">
+    <link rel="canonical" href="https://deepmala-news.vercel.app/newspaper.html">
+    <meta property="og:title" content="Deepmala Newspaper Archive | Read & Download Past Editions">
+    <meta property="og:description" content="Read the latest Deepmala Gujarati weekly newspaper and browse every past edition as PDF.">
+    <meta property="og:url" content="https://deepmala-news.vercel.app/newspaper.html">
+    <meta name="twitter:title" content="Deepmala Newspaper Archive | Read & Download Past Editions">
+    <meta name="twitter:description" content="Read the latest Deepmala Gujarati weekly newspaper and browse every past edition as PDF.">
+</head>
+
+<body>
+
+<!--@include header-->
+
+    <main id="main">
+
+        <section class="page-hero">
+            <div class="container">
+                <p class="eyebrow">Deepmala Newspaper</p>
+                <h1>અખબાર</h1>
+                <p>દિપમાલા સપ્તાહિકનો લેટેસ્ટ અંક અને જૂના બધા અંકો PDF માં વાંચો કે ડાઉનલોડ કરો.</p>
+            </div>
+        </section>
+
+        <section class="section paper-section tight-top">
+            <div class="container">
+                <article class="edition">
+                    <div class="edition-cover" aria-hidden="true">
+                        <span class="edition-rule"></span>
+                        <img src="/images/deep-weekly.png" alt="" width="729" height="172">
+                        <p id="coverEditionDate" class="skeleton-text">Loading…</p>
+                        <span class="edition-rule"></span>
+                    </div>
+                    <div class="edition-body">
+                        <p class="eyebrow">Current Edition</p>
+                        <h2 class="edition-title">લેટેસ્ટ અંક</h2>
+                        <p class="edition-date"><span>પ્રકાશિત</span> <strong id="editionDate" class="skeleton-text">Loading…</strong></p>
+                        <div class="edition-btns">
+                            <a href="#" id="readNewspaper" class="btn btn-primary btn-lg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H15l5 5v9.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5v-13ZM8 12h8M8 15.5h8M8 8.5h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> ન્યૂઝ-પેપર વાંચો</a>
+                            <a href="#" id="downloadNewspaper" class="btn btn-ghost btn-lg" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> PDF ડાઉનલોડ</a>
+                        </div>
+                        <p class="edition-note">PDF નવી ટેબમાં ખુલશે</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section archive-section" id="archive">
+            <div class="container">
+                <header class="section-head">
+                    <p class="eyebrow">Archive</p>
+                    <h2>જૂના અંકો</h2>
+                </header>
+
+                <div class="chips" id="yearChips" role="group" aria-label="Filter by year" hidden></div>
+
+                <ul class="paper-list" id="archiveList"></ul>
+
+                <p class="list-status" id="archiveStatus" aria-live="polite">અંકો લોડ થઈ રહ્યા છે…</p>
+                <button type="button" class="btn btn-ghost btn-lg btn-block load-more" id="archiveMore" hidden>વધુ અંકો બતાવો</button>
+            </div>
+        </section>
+
+    </main>
+
+<!--@include footer-->
+
+    <script type="module" src="/src/js/newspaper.js"></script>
+
+</body>
+
+</html>

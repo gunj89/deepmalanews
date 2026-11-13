@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="robots" content="noindex, nofollow">
+    <title>DEEPMALA Admin</title>
+
+    <link rel="stylesheet" href="/src/css/admin.css">
+</head>
+
+<body>
+
+    <!-- LOGIN SECTION -->
+    <div class="login-container" id="loginContainer">
+
+        <div class="login-box">
+
+            <h1>DEEPMALA</h1>
+            <p>Admin Panel</p>
+
+            <form id="loginForm">
+
+                <label>Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label>Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+                <button type="submit">
+                    Login
+                </button>
+
+                <p id="loginMessage"></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- DASHBOARD -->
+    <div class="dashboard" id="dashboard">
+
+        <header class="dashboard-header">
+
+            <div>
+                <h1>DEEPMALA</h1>
+                <p>Administration Dashboard</p>
+            </div>
+
+            <button id="logoutBtn">
+                Logout
+            </button>
+
+        </header>
+
+
+        <main class="dashboard-content">
+
+            <nav class="tabs" role="tablist" aria-label="Admin sections">
+                <button type="button" class="on" role="tab" aria-selected="true" data-tab="newspaper">📰 Newspaper</button>
+                <button type="button" role="tab" aria-selected="false" data-tab="articles">✍️ Articles</button>
+                <button type="button" role="tab" aria-selected="false" data-tab="comments">💬 Comments</button>
+            </nav>
+
+            <!-- ============ NEWSPAPER ============ -->
+            <div id="tab-newspaper">
+
+                <section class="upload-card">
+                    <h2>📰 Upload Newspaper</h2>
+                    <p>Upload this week's DEEPMALA newspaper PDF.</p>
+
+                    <form id="uploadForm">
+                        <label for="newspaper">Newspaper PDF</label>
+                        <input type="file" id="newspaper" accept="application/pdf" required>
+
+                        <label for="editionDate">Edition Date</label>
+                        <input type="date" id="editionDate" required>
+
+                        <button type="submit">Publish Newspaper</button>
+                    </form>
+                    <p id="uploadMessage"></p>
+                </section>
+
+                <section class="editions-card">
+                    <h2>Previous Editions</h2>
+                    <div id="editionsList"><p>No newspapers uploaded yet.</p></div>
+                </section>
+
+            </div>
+
+            <!-- ============ ARTICLES ============ -->
+            <div id="tab-articles" hidden>
+
+                <section class="editions-card" id="articlesListView">
+                    <div class="card-head">
+                        <h2>Articles</h2>
+                        <button type="button" class="primary-btn" id="newArticleBtn">＋ New article</button>
+                    </div>
+                    <p id="articlesMsg" class="muted" role="status"></p>
+                    <ul class="a-list" id="articleRows"></ul>
+                    <button type="button" class="mini wide" id="articlesMore" hidden>Load more</button>
+                </section>
+
+                <section class="editions-card" id="articleEditorView" hidden>
+                    <div class="card-head">
+                        <h2 id="editorHeading">New article</h2>
+                        <button type="button" class="mini" id="editorBack">← Back to list</button>
+                    </div>
+
+                    <form id="articleForm" class="stack" novalidate>
+                        <label>Title
+                            <input type="text" name="title" maxlength="255" placeholder="લેખનું શીર્ષક" required>
+                        </label>
+                        <label>Author
+                            <input type="text" name="author" maxlength="100">
+                        </label>
+                        <label>Short summary <small>(shown on cards &amp; WhatsApp preview — leave blank to auto-fill)</small>
+                            <textarea name="excerpt" rows="2" maxlength="600"></textarea>
+                        </label>
+
+                        <div class="cover-box">
+                            <span class="lbl">Cover image</span>
+                            <img id="coverPreview" alt="" hidden>
+                            <div class="cover-btns">
+                                <input type="file" id="coverFile" accept="image/jpeg,image/png,image/webp">
+                                <button type="button" class="mini danger" id="coverRemove" hidden>Remove cover</button>
+                            </div>
+                        </div>
+
+                        <div class="lbl">Article</div>
+                        <div id="editorHost"></div>
+
+                        <div class="editor-btns">
+                            <button type="button" class="primary-btn" id="btnPublish">Publish</button>
+                            <button type="button" class="mini big" id="btnDraft">Save as draft</button>
+                        </div>
+                        <p id="articleFormMsg" class="form-note" role="status"></p>
+                    </form>
+                </section>
+
+            </div>
+
+            <!-- ============ COMMENTS ============ -->
+            <div id="tab-comments" hidden>
+                <section class="editions-card">
+                    <div class="card-head">
+                        <h2>Latest comments</h2>
+                        <button type="button" class="mini" id="commentsRefresh">Refresh</button>
+                    </div>
+                    <p id="commentsMsg" class="muted" role="status"></p>
+                    <ul class="a-list" id="commentRows"></ul>
+                </section>
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script type="module" src="/src/js/admin.js"></script>
+
+</body>
+</html>
