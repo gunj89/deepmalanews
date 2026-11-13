@@ -18,7 +18,7 @@ async function load() {
     try {
         const res = await listPublished({ cursor, limit: 12 });
         if (!started) { grid.innerHTML = ""; started = true; }
-        grid.insertAdjacentHTML("beforeend", res.rows.map(articleCardHtml).join(""));
+        grid.insertAdjacentHTML("beforeend", res.rows.map((r) => articleCardHtml(r, { button: true })).join(""));
         cursor = res.rows.length ? res.rows[res.rows.length - 1].$id : cursor;
         moreBtn.hidden = res.rows.length < 12;
         statusEl.textContent = grid.children.length ? "" : "હજી કોઈ સમાચાર પ્રકાશિત થયા નથી.";

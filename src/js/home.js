@@ -77,7 +77,7 @@ async function loadArticles() {
     try {
         const res = await listPublished({ limit: 3 });
         if (!res.rows.length) return;
-        $("#homeArticles").innerHTML = res.rows.map(articleCardHtml).join("");
+        $("#homeArticles").innerHTML = res.rows.map((r) => articleCardHtml(r, { button: true })).join("");
         $("#articles").hidden = false;
     } catch (err) {
         console.error("Could not load articles:", err);

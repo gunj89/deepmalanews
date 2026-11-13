@@ -62,6 +62,7 @@ const EN = {
     "તાજા સમાચાર": "Latest News",
     "વિશેષ અહેવાલો અને વાંચવા લાયક સમાચાર.": "Special reports and news worth reading.",
     "બધા સમાચાર જુઓ": "View all news",
+    "પૂરા સમાચાર વાંચો": "Read full news",
     "તાજા વીડિયો": "Latest Videos",
     "સમાચાર કવરેજ, રિપોર્ટ્સ, ઇન્ટરવ્યૂ અને વિશેષ અહેવાલો.": "News coverage, reports, interviews and special reports.",
     "બધા વીડિયો જુઓ": "View all videos",
