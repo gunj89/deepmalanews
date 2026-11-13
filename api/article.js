@@ -49,6 +49,21 @@ export default async function handler(req, res) {
                 ? `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${a.coverImageId}/view?project=${PROJECT}`
                 : `${origin}/images/DEEPMALA_PAPER%20LOGO.png`;
 
+            const ld = {
+                "@context": "https://schema.org",
+                "@type": "NewsArticle",
+                mainEntityOfPage: { "@type": "WebPage", "@id": url },
+                headline: String(a.title || "").slice(0, 110),
+                description: desc,
+                image: [img],
+                datePublished: a.publishedAt || a.$createdAt,
+                dateModified: a.$updatedAt || a.publishedAt || a.$createdAt,
+                inLanguage: "gu",
+                author: { "@type": "Organization", name: a.author || "Deepmala News" },
+                publisher: { "@type": "NewsMediaOrganization", name: "Deepmala News", logo: { "@type": "ImageObject", url: `${origin}/images/DEEPMALA_PAPER%20LOGO.png` } }
+            };
+            const ldTag = `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`;
+
             const tags = [
                 `<meta name="description" content="${esc(desc)}">`,
                 `<link rel="canonical" href="${esc(url)}">`,
@@ -59,7 +74,8 @@ export default async function handler(req, res) {
                 `<meta property="og:image" content="${esc(img)}">`,
                 `<meta name="twitter:title" content="${esc(title)}">`,
                 `<meta name="twitter:description" content="${esc(desc)}">`,
-                `<meta name="twitter:image" content="${esc(img)}">`
+                `<meta name="twitter:image" content="${esc(img)}">`,
+                ldTag
             ].join("\n    ");
 
             html = html
