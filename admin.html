@@ -73,7 +73,7 @@
 
             <nav class="tabs" role="tablist" aria-label="Admin sections">
                 <button type="button" class="on" role="tab" aria-selected="true" data-tab="newspaper">📰 Newspaper</button>
-                <button type="button" role="tab" aria-selected="false" data-tab="articles">✍️ Articles</button>
+                <button type="button" role="tab" aria-selected="false" data-tab="articles">✍️ News</button>
                 <button type="button" role="tab" aria-selected="false" data-tab="comments">💬 Comments</button>
             </nav>
 
@@ -108,8 +108,8 @@
 
                 <section class="editions-card" id="articlesListView">
                     <div class="card-head">
-                        <h2>Articles</h2>
-                        <button type="button" class="primary-btn" id="newArticleBtn">＋ New article</button>
+                        <h2>News</h2>
+                        <button type="button" class="primary-btn" id="newArticleBtn">＋ Add news</button>
                     </div>
                     <p id="articlesMsg" class="muted" role="status"></p>
                     <ul class="a-list" id="articleRows"></ul>
@@ -124,7 +124,7 @@
 
                     <form id="articleForm" class="stack" novalidate>
                         <label>Title
-                            <input type="text" name="title" maxlength="255" placeholder="લેખનું શીર્ષક" required>
+                            <input type="text" name="title" maxlength="255" placeholder="સમાચારનું શીર્ષક" required>
                         </label>
                         <label>Author
                             <input type="text" name="author" maxlength="100">
@@ -142,7 +142,7 @@
                             </div>
                         </div>
 
-                        <div class="lbl">Article</div>
+                        <div class="lbl">News</div>
                         <div id="editorHost"></div>
 
                         <div class="editor-btns">

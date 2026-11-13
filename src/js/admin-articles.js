@@ -54,10 +54,10 @@ async function loadMore(reset = false) {
         rowsEl.insertAdjacentHTML("beforeend", res.rows.map(rowHtml).join(""));
         cursor = res.rows.length ? res.rows[res.rows.length - 1].$id : cursor;
         moreBtn.hidden = res.rows.length < 25;
-        listMsg.textContent = rows.length ? "" : "No articles yet. Click “New article” to write the first one.";
+        listMsg.textContent = rows.length ? "" : "No news yet. Click “Add news” to write the first one.";
     } catch (err) {
         console.error(err);
-        listMsg.textContent = "Could not load articles: " + err.message;
+        listMsg.textContent = "Could not load news: " + err.message;
     }
 }
 
@@ -121,8 +121,8 @@ function openEditor(row = null) {
     paintCover();
     formMsg.textContent = "";
     const pub = row?.status === "published";
-    $("#editorHeading").textContent = row ? "Edit article" : "New article";
-    $("#btnPublish").textContent = pub ? "Update article" : "Publish";
+    $("#editorHeading").textContent = row ? "Edit news" : "Add news";
+    $("#btnPublish").textContent = pub ? "Update news" : "Publish";
     $("#btnDraft").textContent = pub ? "Unpublish (save as draft)" : "Save as draft";
     listView.hidden = true;
     editView.hidden = false;
@@ -160,7 +160,7 @@ async function save(status) {
     const title = form.elements.title.value.trim();
     const content = editor.getHtml();
     if (!title) { formMsg.textContent = "Please write a title."; form.elements.title.focus(); return; }
-    if (!content) { formMsg.textContent = "The article is empty."; editor.focus(); return; }
+    if (!content) { formMsg.textContent = "The news is empty."; editor.focus(); return; }
 
     const author = form.elements.author.value.trim();
     const excerpt = form.elements.excerpt.value.trim() || htmlToText(content, 200);

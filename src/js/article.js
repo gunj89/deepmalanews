@@ -240,7 +240,7 @@ listEl.addEventListener("click", async (e) => {
 /* ---------- boot ---------- */
 
 async function init() {
-    if (!articleId) { stateEl.textContent = "આ લેખ મળ્યો નથી."; return; }
+    if (!articleId) { stateEl.textContent = "આ સમાચાર મળ્યા નથી."; return; }
     me = getUser();
     paintCommentBox();
     try {
@@ -252,8 +252,8 @@ async function init() {
     } catch (err) {
         console.error("Could not load article:", err);
         stateEl.textContent = err.code === 404 || err.code === 401
-            ? "આ લેખ મળ્યો નથી."
-            : "લેખ લોડ થઈ શક્યો નથી. થોડી વાર પછી ફરી પ્રયાસ કરો.";
+            ? "આ સમાચાર મળ્યા નથી."
+            : "સમાચાર લોડ થઈ શક્યા નથી. થોડી વાર પછી ફરી પ્રયાસ કરો.";
     }
 }
 

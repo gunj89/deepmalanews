@@ -1,10 +1,15 @@
 // Header Sign-in / Log-out button + the sign-in popup (used on every page).
 import { currentUser, isSignedIn, isAdmin, signIn, signUp, signOut } from "./auth.js";
+import { showNotice, confirmDialog } from "./dialog.js";
+import { t } from "./i18n.js";
 
 const T = {
     signin: "સાઇન ઇન", signout: "લોગ-આઉટ",
     needAll: "બધી વિગતો ભરો.", pwShort: "પાસવર્ડ ઓછામાં ઓછો 8 અક્ષરનો રાખો.",
     badLogin: "ઇમેઇલ અથવા પાસવર્ડ ખોટો છે.", exists: "આ ઇમેઇલથી ખાતું પહેલેથી છે. સાઇન ઇન કરો.",
+    inDone: "તમે સફળતાપૂર્વક સાઇન ઇન થયા છો.", upDone: "તમારું ખાતું બન્યું છે અને તમે સાઇન ઇન થયા છો.",
+    outDone: "તમે લોગ-આઉટ થઈ ગયા છો.", outAsk: "શું તમે લોગ-આઉટ કરવા માંગો છો?",
+    ok: "ઓકે", confirm: "કન્ફર્મ", cancel: "રદ કરો",
     rate: "ઘણા પ્રયાસો થયા. થોડી વાર પછી ફરી કરો.", generic: "કંઈક ખોટું થયું. ફરી પ્રયાસ કરો."
 };
 
@@ -103,11 +108,14 @@ function buildModal() {
         submit.disabled = true;
         msg.textContent = "…";
         try {
-            user = mode === "signup" ? await signUp(name, email, password) : await signIn(email, password);
+            const wasSignup = mode === "signup";
+            user = wasSignup ? await signUp(name, email, password) : await signIn(email, password);
             form.reset();
             paintButton();
             emit();
             closeModal(true);
+            await showNotice(t(wasSignup ? T.upDone : T.inDone), t(T.ok));
+            location.reload();
         } catch (err) {
             console.error(err);
             msg.textContent =
@@ -152,12 +160,16 @@ export async function initAuthUi() {
     if (!btn) return;                       // pages without a header (admin)
     btn.addEventListener("click", async () => {
         if (isSignedIn(user)) {
+            const yes = await confirmDialog(t(T.outAsk), { confirm: t(T.confirm), cancel: t(T.cancel) });
+            if (!yes) return;
             btn.disabled = true;
             await signOut();
             user = null;
             btn.disabled = false;
             paintButton();
             emit();
+            await showNotice(t(T.outDone), t(T.ok));
+            location.reload();
         } else {
             openSignIn();
         }

@@ -5,6 +5,7 @@ import { currentUser, isAdmin } from "./auth.js";
 import { DATABASE_ID, NEWSPAPER_BUCKET_ID as BUCKET_ID, NEWSPAPER_TABLE_ID as TABLE_ID } from "./config.js";
 import { allEditions, refreshEditions, viewUrl, formatDate } from "./editions.js";
 import { escapeHtml } from "./common.js";
+import { showNotice, confirmDialog } from "./dialog.js";
 
 const $ = (id) => document.getElementById(id);
 const loginContainer = $("loginContainer");
@@ -55,7 +56,8 @@ loginForm.addEventListener("submit", async (e) => {
         }
         loginMessage.textContent = "";
         loginForm.reset();
-        showDashboard();
+        await showNotice("You have signed in successfully.");
+        location.reload();
     } catch (error) {
         console.error(error);
         loginMessage.textContent = error.message;
@@ -63,8 +65,11 @@ loginForm.addEventListener("submit", async (e) => {
 });
 
 $("logoutBtn").addEventListener("click", async () => {
+    if (!(await confirmDialog("Do you want to log out?"))) return;
     try { await account.deleteSession({ sessionId: "current" }); } catch (error) { console.error(error); }
     showLogin();
+    await showNotice("You have been logged out.");
+    location.reload();
 });
 
 /* =========================

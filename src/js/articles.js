@@ -21,11 +21,11 @@ async function load() {
         grid.insertAdjacentHTML("beforeend", res.rows.map(articleCardHtml).join(""));
         cursor = res.rows.length ? res.rows[res.rows.length - 1].$id : cursor;
         moreBtn.hidden = res.rows.length < 12;
-        statusEl.textContent = grid.children.length ? "" : "હજી કોઈ લેખ પ્રકાશિત થયો નથી.";
+        statusEl.textContent = grid.children.length ? "" : "હજી કોઈ સમાચાર પ્રકાશિત થયા નથી.";
     } catch (err) {
         console.error("Could not load articles:", err);
         if (!started) grid.innerHTML = "";
-        statusEl.textContent = "લેખ લોડ થઈ શક્યા નથી. થોડી વાર પછી ફરી પ્રયાસ કરો.";
+        statusEl.textContent = "સમાચાર લોડ થઈ શક્યા નથી. થોડી વાર પછી ફરી પ્રયાસ કરો.";
     } finally {
         busy = false;
         moreBtn.disabled = false;

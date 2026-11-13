@@ -1,0 +1,30 @@
+/* Notice / confirm dialog — follows the site theme variables (falls back to the default palette). */
+body.dm-dialog-open { overflow: hidden; }
+.dm-dialog { position: fixed; inset: 0; z-index: 4000; display: grid; place-items: center; padding: 16px; }
+.dm-dialog-backdrop { position: absolute; inset: 0; background: rgba(17, 24, 39, .6); animation: dm-fade .18s ease-out; }
+.dm-dialog-card {
+    position: relative; width: min(100%, 380px); text-align: center;
+    background: #fff; border-radius: var(--radius, 14px); padding: 26px 22px 22px;
+    border-top: 5px solid var(--primary, #b91c1c);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .3);
+    font-family: var(--font-body, system-ui, sans-serif);
+    animation: dm-pop .2s ease-out;
+}
+.dm-dialog-card h2 {
+    font-family: var(--font-head, Georgia, serif); font-size: 22px; font-weight: 800;
+    letter-spacing: .18em; color: var(--primary, #b91c1c); margin: 0 0 10px;
+}
+.dm-dialog-card p { margin: 0 0 22px; font-size: 16px; line-height: 1.6; font-weight: 600; color: var(--dark, #111827); }
+.dm-dialog-actions { display: flex; gap: 10px; justify-content: center; }
+.dm-btn {
+    flex: 1 1 0; min-height: 46px; padding: 0 18px; border-radius: 999px; cursor: pointer;
+    font: inherit; font-weight: 700; font-size: 15px; border: 1px solid transparent; transition: background-color .15s, border-color .15s;
+}
+.dm-btn-primary { background: var(--primary, #b91c1c); color: #fff; box-shadow: 0 6px 16px rgba(185, 28, 28, .28); }
+.dm-btn-primary:hover { background: var(--primary-dark, #8f1515); }
+.dm-btn-ghost { background: #fff; color: var(--dark, #111827); border-color: var(--border, #dedede); }
+.dm-btn-ghost:hover { border-color: var(--dark, #111827); }
+.dm-btn:focus-visible { outline: 3px solid var(--primary, #b91c1c); outline-offset: 3px; }
+@keyframes dm-fade { from { opacity: 0; } }
+@keyframes dm-pop { from { opacity: 0; transform: translateY(8px) scale(.97); } }
+@media (prefers-reduced-motion: reduce) { .dm-dialog-backdrop, .dm-dialog-card { animation: none; } }
