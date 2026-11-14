@@ -6,7 +6,10 @@ import { getCounts, getMine, react, listComments, addComment, deleteComment } fr
 import { t } from "./i18n.js";
 import { holdReveal } from "./reveal.js";
 import { isAdmin, isSignedIn } from "./auth.js";
+import { initContentGuard, setContentGuard } from "./content-guard.js";
 import { ensureSignedIn, openSignIn, onAuthChange, getUser } from "./auth-ui.js";
+
+initContentGuard();
 
 const stateEl = $("#articleState");
 const bodyEl = $("#articleBody");
@@ -219,6 +222,7 @@ function paintCommentBox() {
 // Runs when the header finishes checking the session, and on every sign-in / log-out.
 onAuthChange(async (u) => {
     me = isSignedIn(u) ? u : null;
+    setContentGuard(!isAdmin(me));      // admins can still select / copy
     paintCommentBox();
     if (!articleId) return;
     mine = me ? await getMine(articleId).catch(() => null) : null;

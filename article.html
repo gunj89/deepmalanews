@@ -24,11 +24,11 @@
 
             <div id="articleBody" hidden>
                 <p class="draft-banner" id="draftBanner" hidden>આ સમાચાર હજી પ્રકાશિત થયા નથી (ફક્ત એડમિન માટે પ્રીવ્યૂ).</p>
-                <h1 class="article-title" id="articleTitle"></h1>
-                <p class="article-meta" id="articleMeta"></p>
-                <figure class="article-cover" id="articleCover" hidden><img id="articleCoverImg" alt=""></figure>
+                <h1 class="article-title" id="articleTitle" data-guard></h1>
+                <p class="article-meta" id="articleMeta" data-guard></p>
+                <figure class="article-cover" id="articleCover" data-guard hidden><img id="articleCoverImg" alt=""></figure>
 
-                <div class="prose" id="articleContent"></div>
+                <div class="prose" id="articleContent" data-guard></div>
 
                 <div class="reactions" role="group" aria-label="પ્રતિભાવ">
                     <button type="button" class="react-btn" id="likeBtn" aria-pressed="false">

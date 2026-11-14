@@ -23,3 +23,14 @@
 .prose figure.media figcaption { margin-top: 8px; text-align: center; font-size: .85em; color: var(--muted, #6b7280); }
 .prose .embed { position: relative; aspect-ratio: 16 / 9; background: #000; border-radius: 10px; overflow: hidden; margin: 1.4em 0; }
 .prose .embed iframe, .prose .embed video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 0; }
+
+/* Article content guard — see src/js/content-guard.js (article only, not comments/UI) */
+html:not(.guard-off) [data-guard],
+html:not(.guard-off) [data-guard] * {
+    -webkit-user-select: none; user-select: none;
+    -webkit-touch-callout: none;          /* no iOS long-press menu */
+    -webkit-user-drag: none;
+}
+html:not(.guard-off) [data-guard] img,
+html:not(.guard-off) [data-guard] video { -webkit-user-drag: none; }
+@media print { html:not(.guard-off) [data-guard] { display: none !important; } }
