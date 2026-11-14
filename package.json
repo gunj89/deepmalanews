@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/gunj89/deepmala-news#readme",
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "appwrite": "^26.2.0"
   },
   "devDependencies": {

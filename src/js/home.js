@@ -1,3 +1,7 @@
+import { inject } from "@vercel/analytics";
+
+inject();
+
 import { $, $$ } from "./common.js";
 import { holdReveal } from "./reveal.js";
 import { latestEdition, viewUrl, formatDate } from "./editions.js";
