@@ -58,6 +58,7 @@ const EN = {
     "દિપમાલા સપ્તાહિક": "Deepmala Weekly",
     "પ્રકાશિત": "Published",
     "PDF નવી ટેબમાં ખુલશે": "The PDF opens in a new tab",
+    "બધા અંકો જુઓ": "View all issues",
     "જૂના અંકો જુઓ": "View past issues",
     "તાજા સમાચાર": "Latest News",
     "વિશેષ અહેવાલો અને વાંચવા લાયક સમાચાર.": "Special reports and news worth reading.",
